@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <NoWarn>NU1701</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RhinoCommon" Version="8.0.23304.9001" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Links the same source file used by the GHA plugin, rather than referencing
+         the .gha build output directly, to keep this harness independent of the
+         plugin project's TargetExt override. -->
+    <Compile Include="..\RhinoToMinecraft\Core\VoxelizationEngine.cs" Link="Core\VoxelizationEngine.cs" />
+  </ItemGroup>
+
+</Project>

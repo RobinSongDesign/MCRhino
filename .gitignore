@@ -1,0 +1,26 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# NuGet
+*.nupkg
+packages/
+
+# Generated export artifacts (e.g. .mcfunction test output), not source
+*.mcfunction
+
+# Local tool config (not project source)
+.claude/
+
+# Dev planning docs (not project source)
+PRD.md
+DEVPLAN.md
+issues/
+
+# Binary files
+*.gh

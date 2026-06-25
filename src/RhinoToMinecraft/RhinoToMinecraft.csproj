@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TargetExt>.gha</TargetExt>
+    <UseWindowsForms>true</UseWindowsForms>
+    <NoWarn>NU5128;CA1416</NoWarn>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <RootNamespace>RhinoToMinecraft</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RhinoCommon" Version="8.0.23304.9001" IncludeAssets="compile;build" />
+    <PackageReference Include="Grasshopper" Version="8.0.23304.9001" IncludeAssets="compile;build" />
+  </ItemGroup>
+
+  <Target Name="DeployToGrasshopperLibraries" AfterTargets="Build">
+    <MakeDir Directories="$(AppData)\Grasshopper\Libraries" Condition="!Exists('$(AppData)\Grasshopper\Libraries')" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(AppData)\Grasshopper\Libraries" />
+  </Target>
+
+</Project>
